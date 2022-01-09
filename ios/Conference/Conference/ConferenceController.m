@@ -15,7 +15,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.room = @"https://meet.jit.si/react-native-jitsi-meet-sdk";
   
     if (self.room == nil) {
         NSLog(@"Room is nul! ");
