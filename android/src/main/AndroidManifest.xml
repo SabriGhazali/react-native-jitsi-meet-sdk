@@ -1,4 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.reactnativejitsimeetsdk">
+    package="com.reactnativejitsimeetsdk">
+
+    <application>
+        <activity
+            android:name=".JitsiActivity"
+            android:exported="true" />
+    </application>
 
 </manifest>

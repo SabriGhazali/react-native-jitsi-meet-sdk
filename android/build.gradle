@@ -19,10 +19,10 @@ def safeExtGet(prop, fallback) {
 }
 
 android {
-    compileSdkVersion safeExtGet('JitsiMeetSdk_compileSdkVersion', 29)
+    compileSdkVersion safeExtGet('JitsiMeetSdk_compileSdkVersion', 31)
     defaultConfig {
-        minSdkVersion safeExtGet('JitsiMeetSdk_minSdkVersion', 16)
-        targetSdkVersion safeExtGet('JitsiMeetSdk_targetSdkVersion', 29)
+        minSdkVersion safeExtGet('JitsiMeetSdk_minSdkVersion', 23)
+        targetSdkVersion safeExtGet('JitsiMeetSdk_targetSdkVersion', 31)
         versionCode 1
         versionName "1.0"
 
@@ -45,8 +45,11 @@ android {
 repositories {
     mavenLocal()
     maven {
-        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+//        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
         url("$rootDir/../node_modules/react-native/android")
+    }
+    maven {
+       url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
     }
     google()
     mavenCentral()
@@ -56,4 +59,9 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
+    implementation ('org.jitsi.react:jitsi-meet-sdk:3.10.2') {
+      transitive = true
+  }
+  implementation 'com.android.support:appcompat-v7:28.0.0'
+  implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 }

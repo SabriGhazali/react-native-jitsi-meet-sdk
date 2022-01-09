@@ -1,5 +1,13 @@
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-@interface JitsiMeetSdk : NSObject <RCTBridgeModule>
+#import "ConferenceController.h"
+
+
+@import JitsiMeetSDK;
+
+@interface JitsiMeetSdk : RCTEventEmitter <RCTBridgeModule>
 
 @end
+
+
