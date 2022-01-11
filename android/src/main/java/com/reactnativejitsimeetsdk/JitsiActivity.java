@@ -1,5 +1,6 @@
 package com.reactnativejitsimeetsdk;
 
+import android.Manifest;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -26,6 +28,8 @@ import java.net.URL;
 public class JitsiActivity extends FragmentActivity implements JitsiMeetActivityInterface {
   private JitsiMeetView view;
 
+
+
   @Override
   protected void onActivityResult(
     int requestCode,
@@ -44,7 +48,6 @@ public class JitsiActivity extends FragmentActivity implements JitsiMeetActivity
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
 
     Intent intent = getIntent();
     String url = intent.getStringExtra("url");
@@ -68,14 +71,8 @@ public class JitsiActivity extends FragmentActivity implements JitsiMeetActivity
 
     JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions.Builder()
       .setRoom(url)
-      .setAudioOnly(false)
       .setUserInfo(_userInfo)
       .setFeatureFlag("pip.enabled",false)
-      .setFeatureFlag("invite.enabled",false)
-      .setFeatureFlag("meeting-name.enabled",false)
-      .setFeatureFlag("conference-timer.enabled",false)
-      .setFeatureFlag("toolbox.alwaysVisible",true)
-      .setFeatureFlag("security-options.enabled",false)
       .build();
 
     view.join(options);
@@ -126,6 +123,8 @@ public class JitsiActivity extends FragmentActivity implements JitsiMeetActivity
 
   @Override
   public void requestPermissions(String[] strings, int i, PermissionListener permissionListener) {
+    Log.d(JitsiActivity.class.getName(), "requestPermissions: "+permissionListener);
+
 
   }
 

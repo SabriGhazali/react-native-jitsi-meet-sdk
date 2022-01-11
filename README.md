@@ -1,6 +1,6 @@
 # react-native-jitsi-meet-sdk
 
-React native wrapper for Jitsi Meet SDK Library
+React native wrapper for Jitsi Meet SDK Library.
 This Library implements the Jitsi SDK with a native activity on the Android side and a viewController for iOS part, which give you a better experience and less problems.
 
 ## Installation
@@ -96,35 +96,35 @@ import JitsiMeetSdk from 'react-native-jitsi-meet-sdk';
     const subscription_will_join = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_CONFERENCE_WILL_JOIN_EVENT_NAME,
       (e) => {
-        console.log("CONFERENCE_WILL_JOIN_EVENT_NAME");
+        console.log("CONFERENCE_WILL_JOIN_EVENT");
       }
     );
 
     const subscription_terminated = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_CONFERENCE_TERMINATED_EVENT_NAME,
       (e) => {
-        console.log("CONFERENCE_TERMINATED_EVENT_NAME");
+        console.log("CONFERENCE_TERMINATED_EVENT");
       }
     );
 
     const subscription_joined = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_CONFERENCE_JOINED_EVENT_NAME,
       (e) => {
-        console.log("CONFERENCE_JOINED_EVENT_NAME");
+        console.log("CONFERENCE_JOINED_EVENT");
       }
     );
 
     const subscription_participant_left = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_PARTICIPANT_LEFT_EVENT_NAME,
       (e) => {
-        console.log("PARTICIPANT_LEFT_EVENT_NAME", e);
+        console.log("PARTICIPANT_LEFT_EVENT", e);
       }
     );
 
     const subscription_participant_joined = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_PARTICIPANT_JOINED_EVENT_NAME,
       (e) => {
-        console.log("PARTICIPANT_JOINED_EVENT_NAME", e);
+        console.log("PARTICIPANT_JOINED_EVENT", e);
       }
     );
 
@@ -133,7 +133,7 @@ import JitsiMeetSdk from 'react-native-jitsi-meet-sdk';
     const subscription_retrieve_participants = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_RETRIEVE_PARTICIPANT_INFO_EVENT_NAME,
       (e) => {
-        console.log("RETRIEVE_PARTICIPANT_INFO_EVENT_NAME", e);
+        console.log("RETRIEVE_PARTICIPANT_INFO_EVENT", e);
       }
     );
 
@@ -157,7 +157,7 @@ import { retrieveParticipantsInfo } from 'react-native-jitsi-meet-sdk';
 
 // ...
 
-   // For Android you must implement the "subscription_retrieve_participants" listener in order to retrieve the participants and call this function
+   // For Android you must implement the "subscription_retrieve_participants" listener in order to retrieve the participants.
 retrieveParticipantsInfo((retrieveParticipant)=>{
 
 })

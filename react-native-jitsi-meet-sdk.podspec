@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     cc.exclude_files    = "ios/Conference/Conference/Conference.h"
     cc.resource_bundles = { "Conference" => "ios/Conference/Conference/*.{lproj,storyboard}" }
     cc.requires_arc     = true
-    cc.dependency 'JitsiMeetSDK', '3.10.2'
+    cc.dependency 'JitsiMeetSDK', '4.1.0'
   end
 
 end

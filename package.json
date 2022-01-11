@@ -1,6 +1,6 @@
 {
   "name": "react-native-jitsi-meet-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React native wrapper for Jitsi Meet SDK Library",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

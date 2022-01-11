@@ -35,13 +35,7 @@
                 = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {
                     builder.room = self.room;
                     builder.userInfo = self.userInfo;
-                    builder.audioMuted = YES;
                     [builder setFeatureFlag:@"pip.enabled" withBoolean:NO];
-                    [builder setFeatureFlag:@"invite.enabled" withBoolean:NO];
-                    [builder setFeatureFlag:@"meeting-name.enabled" withBoolean:NO];
-                    [builder setFeatureFlag:@"conference-timer.enabled" withBoolean:NO];
-                    [builder setFeatureFlag:@"toolbox.alwaysVisible" withBoolean:NO];
-                    [builder setFeatureFlag:@"security-options.enabled" withBoolean:NO];
                 }];
 
 

@@ -91,6 +91,8 @@ public class JitsiMeetSdkModule extends ReactContextBaseJavaModule implements JS
         intent.putExtra("url", url);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         Objects.requireNonNull(getCurrentActivity()).startActivity(intent);
+        getCurrentActivity().overridePendingTransition(0, 0);
+
       }
 
     });
