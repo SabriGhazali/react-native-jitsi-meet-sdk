@@ -1,11 +1,10 @@
 import { NativeModules, Platform } from 'react-native';
-import * as constants from './constants';
 
 
 const JitsiMeetSdk = NativeModules.JitsiMeetSdk
 
   
-export function startCall(url,user)  {
+export function startCall( url : String, user : String)  {
   return JitsiMeetSdk.startCall(url, user);
 }
 
@@ -13,8 +12,8 @@ export function endCall()  {
   return JitsiMeetSdk.endCall();
 }
 
-export function retrieveParticipantsInfo(callback)  {
- return Platform.OS === "ios" ? JitsiMeetSdk.retrieveParticipantsInfo((error, arrayInfo) => {
+export function retrieveParticipantsInfo(callback : Function)  {
+ return Platform.OS === "ios" ? JitsiMeetSdk.retrieveParticipantsInfo((error : String, arrayInfo : String) => {
     if (error) {
       console.error(error);
     } else {
@@ -25,10 +24,5 @@ export function retrieveParticipantsInfo(callback)  {
   
 }
 
-
-
-
-
-export const Constants = constants
 
 export default JitsiMeetSdk

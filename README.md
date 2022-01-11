@@ -1,6 +1,7 @@
 # react-native-jitsi-meet-sdk
 
 React native wrapper for Jitsi Meet SDK Library
+This Library implements the Jitsi SDK with a native activity on the Android side and a viewController for iOS part, which give you a better experience and less problems.
 
 ## Installation
 
@@ -8,20 +9,78 @@ React native wrapper for Jitsi Meet SDK Library
 npm install react-native-jitsi-meet-sdk
 ```
 
+## Android Configuration:(MinSdk: 23)
+
+Add this to your `android/build.gradle` :
+
+```sh
+
+allprojects {
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
+        maven {
+            url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases" // <---- Add this line
+        }
+        google()
+        maven { url 'https://www.jitpack.io' }
+        jcenter()
+
+    }
+}
+
+```
+
+Add `tools:replace="android:allowBackup"` to your `AndroidManifest.xml` :
+
+```sh
+
+  <application
+      ...
+      tools:replace="android:allowBackup"  // <---- Add this line
+      >  
+
+```
+
+
+## iOS Configuration:(Min Target: 12)
+
+Add this to your `Info.plist` :
+
+```sh
+<key>NSCameraUsageDescription</key>
+<string>Camera permission description</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>Microphone permission description</string>
+```
+
 ## Usage
 
 Start meeting :
 
 ```js
-import { startCall, endCall, retrieveParticipantsInfo } from 'react-native-jitsi-meet-sdk';
+import { startCall, endCall } from 'react-native-jitsi-meet-sdk';
 
 // ...
+
+  // Start the call with url and user
 
 startCall("https://meet.jit.si/react-native-jitsi-meet-sdk", {
       name: "name",
       email: "test@mail.com",
       avatar: "https://avatar.png"
     })
+
+
+  // Call this to end the call programmatically 
+endCall()
 
 ```
 
@@ -91,15 +150,16 @@ import JitsiMeetSdk from 'react-native-jitsi-meet-sdk';
 
 ```
 
-Start meeting :
+Retrieve participants info :
 
 ```js
 import { retrieveParticipantsInfo } from 'react-native-jitsi-meet-sdk';
 
 // ...
 
+   // For Android you must implement the "subscription_retrieve_participants" listener in order to retrieve the participants and call this function
 retrieveParticipantsInfo((retrieveParticipant)=>{
-   // For Android you will get the participant in the callback "subscription_retrieve_participants"
+
 })
 
 ```
