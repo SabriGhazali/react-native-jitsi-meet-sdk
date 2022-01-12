@@ -9,6 +9,11 @@ This Library implements the Jitsi SDK with a native activity on the Android side
 npm install react-native-jitsi-meet-sdk
 ```
 
+## Important
+
+We faced some issues with RN >= 0.64 and JitsiSDK, we recommend using a version `0.60 <= RN < 0.64`
+
+
 ## Android Configuration:(MinSdk: 23)
 
 Add this to your `android/build.gradle` :
@@ -164,6 +169,29 @@ retrieveParticipantsInfo((retrieveParticipant)=>{
 
 ```
 
+## Generating release APK
+
+If your having problems with `duplicate_classes` errors, try exclude them from the react-native-jitsi-meet-sdk project implementation with the following code:
+
+```js
+
+// You may face the same problem in other libraries too, just exclude it like the example below 
+
+implementation(project(':react-native-jitsi-meet-sdk')) {
+  // Un-comment below if using hermes
+  exclude group: 'com.facebook',module:'hermes'
+  // Un-comment any used packages below
+   exclude group: 'com.facebook.react',module:'react-native-community-async-storage'
+  // exclude group: 'com.facebook.react',module:'react-native-locale-detector'
+  // exclude group: 'com.facebook.react',module:'react-native-vector-icons'
+  // exclude group: 'com.facebook.react',module:'react-native-community_netinfo'
+  // exclude group: 'com.facebook.react',module:'react-native-svg'
+  // exclude group: 'com.facebook.react',module:'react-native-fetch-blob'
+  // exclude group: 'com.facebook.react',module:'react-native-webview'
+  // exclude group: 'com.facebook.react',module:'react-native-linear-gradient'
+  // exclude group: 'com.facebook.react',module:'react-native-sound'
+}
+```
 
 ## Contributing
 
