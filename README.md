@@ -1,7 +1,7 @@
 # react-native-jitsi-meet-sdk
 
 React native wrapper for Jitsi Meet SDK Library.
-This Library implements the Jitsi SDK with a native activity on the Android side and a viewController for iOS part, which give you a better experience and less problems.
+This Library implements the Jitsi SDK with a native activity on the Android side and a viewController for iOS part, which gives you a better experience and less problems.
 
 ## Installation
 
