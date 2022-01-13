@@ -193,6 +193,11 @@ implementation(project(':react-native-jitsi-meet-sdk')) {
 }
 ```
 
+## ProGuard rules
+
+In order to avoid necessary code being stripped. Add the following to your project's rules file: https://github.com/SabriGhazali/react-native-jitsi-meet-sdk/blob/main/example/android/app/proguard-rules.pro
+
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.

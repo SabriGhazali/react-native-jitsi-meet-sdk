@@ -15,9 +15,14 @@ export default function App() {
       email: "test@mail.com",
       avatar: "https://avatar.png"
     })
+
+    
+
   }
 
   useEffect(() => {
+
+    console.log("FLAGS",FLAGS.WELCOME_PAGE_ENABLED);
 
     const subscription_will_join = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_CONFERENCE_WILL_JOIN_EVENT_NAME,

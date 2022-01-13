@@ -1,5 +1,7 @@
 import { NativeModules, Platform } from 'react-native';
 
+import {FLAGS} from './constants';
+
 
 const JitsiMeetSdk = NativeModules.JitsiMeetSdk
 
@@ -24,5 +26,9 @@ export function retrieveParticipantsInfo(callback : Function)  {
   
 }
 
+export {FLAGS} from './constants';
 
-export default JitsiMeetSdk
+
+export default {
+  JitsiMeetSdk,
+};
