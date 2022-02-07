@@ -6,7 +6,7 @@ import {FLAGS} from './constants';
 const JitsiMeetSdk = NativeModules.JitsiMeetSdk
 
   
-export function startCall( url : String, user : String)  {
+export function startCall( url : String, user : { name: string, email: string, avatar: string })  {
   return JitsiMeetSdk.startCall(url, user);
 }
 
