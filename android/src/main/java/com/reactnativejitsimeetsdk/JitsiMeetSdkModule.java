@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -70,7 +71,7 @@ public class JitsiMeetSdkModule extends ReactContextBaseJavaModule implements JS
   };
 
   @ReactMethod
-  public void startCall(String url, ReadableMap userInfo) {
+  public void startCall(String url, ReadableMap userInfo , ReadableMap options) {
     UiThreadUtil.runOnUiThread(new Runnable() {
       @Override
       public void run() {
@@ -85,6 +86,24 @@ public class JitsiMeetSdkModule extends ReactContextBaseJavaModule implements JS
           }
           if (userInfo.hasKey("avatar")) {
             intent.putExtra("avatar", userInfo.getString("avatar"));
+          }
+        }
+
+        if (options != null) {
+          if (options.hasKey("token")) {
+            intent.putExtra("token", options.getString("token"));
+          }
+          if (options.hasKey("subject")) {
+            intent.putExtra("subject", options.getString("subject"));
+          }
+          if (options.hasKey("audioMuted")) {
+            intent.putExtra("audioMuted", options.getBoolean("audioMuted"));
+          }
+          if (options.hasKey("videoMuted")) {
+            intent.putExtra("videoMuted", options.getBoolean("videoMuted"));
+          }
+          if (options.hasKey("audioOnly")) {
+            intent.putExtra("audioOnly", options.getBoolean("audioOnly"));
           }
         }
 

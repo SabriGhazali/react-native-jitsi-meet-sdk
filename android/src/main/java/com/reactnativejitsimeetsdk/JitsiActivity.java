@@ -12,6 +12,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.modules.core.PermissionListener;
 
 import org.jitsi.meet.sdk.BroadcastEvent;
@@ -67,11 +68,17 @@ public class JitsiActivity extends FragmentActivity implements JitsiMeetActivity
     }
 
 
+
     view = new JitsiMeetView(this);
 
     JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions.Builder()
       .setRoom(url)
       .setUserInfo(_userInfo)
+      .setToken(intent.hasExtra("token") ? intent.getStringExtra("token")  : "")
+      .setSubject(intent.hasExtra("subject") ? intent.getStringExtra("subject")  : "")
+      .setAudioMuted(intent.hasExtra("audioMuted") && intent.getBooleanExtra("audioMuted" , false))
+      .setVideoMuted(intent.hasExtra("videoMuted") && intent.getBooleanExtra("videoMuted" , false))
+      .setAudioOnly(intent.hasExtra("audioOnly") && intent.getBooleanExtra("audioOnly" , false))
       .setFeatureFlag("pip.enabled",false)
       .build();
 

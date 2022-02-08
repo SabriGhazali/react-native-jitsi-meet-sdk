@@ -89,6 +89,42 @@ endCall()
 
 ```
 
+Options :
+
+```js
+import { startCall } from 'react-native-jitsi-meet-sdk';
+
+// ...
+
+  // Start the call with options
+
+   const options = {
+    audioMuted: true,
+    videoMuted: true,
+  }
+
+startCall("https://meet.jit.si/react-native-jitsi-meet-sdk", {
+      name: "name",
+      email: "test@mail.com",
+      avatar: "https://avatar.png"
+    },
+    options)
+
+
+```
+
+Options : 
+
+| key          | Default |
+| ------------ | --- | 
+| token    | null  | 
+| subject    | path of the url   | 
+| audioMuted    | false  | 
+| videoMuted    | false  | 
+| audioOnly    | false  | 
+
+
+
 Implement listeners :
 
 ```js

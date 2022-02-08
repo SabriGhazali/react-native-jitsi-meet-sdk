@@ -9,21 +9,22 @@ export default function App() {
 
   const [url, setUrl] = useState("https://meet.jit.si/react-native-jitsi-meet-sdk")
 
-  const callAction = () => {
-    startCall(url, {
-      name: "name",
-      email: "test@mail.com",
-      avatar: "https://avatar.png"
-    })
+  const user = {
+    name: "name",
+    email: "test@mail.com",
+    avatar: "https://avatar.png"
+  }
 
-    
-
+  const options = {
+   // token: "jwt ....",
+    subject: "This is the demo app",
+    audioMuted: true,
+    videoMuted: true,
+    // audioOnly: false,
   }
 
   useEffect(() => {
-
-    console.log("FLAGS",FLAGS.WELCOME_PAGE_ENABLED);
-
+    
     const subscription_will_join = eventManagerEmitter.addListener(
       JitsiMeetSdk.CONST_JS_CONFERENCE_WILL_JOIN_EVENT_NAME,
       (e) => {
@@ -83,7 +84,7 @@ export default function App() {
     <View style={styles.container}>
 
       <TouchableOpacity
-        onPress={() => callAction()}
+        onPress={() => startCall(url, user)}
       ><Text>Start Call</Text>
       </TouchableOpacity>
 

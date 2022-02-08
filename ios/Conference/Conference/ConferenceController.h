@@ -7,6 +7,8 @@
 
 @property (nonatomic, weak) NSString *room;
 
+@property (nonatomic, weak) NSDictionary *options;
+
 @property (nonatomic, weak) JitsiMeetUserInfo *userInfo ;
 
 @property (nonatomic, weak) JitsiMeetView *jitsiMeetView ;

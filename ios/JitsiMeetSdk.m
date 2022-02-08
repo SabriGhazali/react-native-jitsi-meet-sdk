@@ -22,7 +22,7 @@
 RCT_EXPORT_MODULE()
 
 
-RCT_EXPORT_METHOD(startCall:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
+RCT_EXPORT_METHOD(startCall:(NSString *)urlString userInfo:(NSDictionary *)userInfo options:(NSDictionary *)options)
 {
   
   
@@ -59,6 +59,10 @@ RCT_EXPORT_METHOD(startCall:(NSString *)urlString userInfo:(NSDictionary *)userI
         
       viewConference.room = urlString;
       viewConference.userInfo = _userInfo;
+      viewConference.options = options;
+
+
+        
 
       UIViewController *rootVC = UIApplication.sharedApplication.delegate.window.rootViewController;
 
