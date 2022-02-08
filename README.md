@@ -113,8 +113,6 @@ startCall("https://meet.jit.si/react-native-jitsi-meet-sdk", {
 
 ```
 
-Options : 
-
 | key          | Default |
 | ------------ | --- | 
 | token    | null  | 
